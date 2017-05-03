@@ -111,6 +111,14 @@ Count the lines of stdin, like in `ls | wc -l`
 ls | measure
 ```
 
+## `df -h`
+
+Show free disk space in Gigabytes 
+
+```powershell
+gwmi win32_logicaldisk -filter "drivetype = 3" | % { $_.deviceid; $_.freespace/1GB }
+```
+
 ## time another command
 
 To measure the time that a command takes, use
